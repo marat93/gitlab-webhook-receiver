@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  get 'authentication/login'
+  post 'authentication/login'
   get 'authentication/info'
 end

@@ -4,7 +4,7 @@ class AuthenticationController < ApplicationController
   def login
     @user = User.new
 
-    if @user.authenticate(login_params[:password])
+    if username_param == @user.username && @user.authenticate(password_param)
       time = Time.now + 1.hour.to_i
       token = JsonWebToken.encode(expires_at: time)
 
@@ -20,7 +20,12 @@ class AuthenticationController < ApplicationController
 
   private
 
-  def login_params
-    params.permit(:username, :password)
+  def password_param
+    request.headers['Authorization']
   end
+
+  def username_param
+    params[:username]
+  end
+
 end

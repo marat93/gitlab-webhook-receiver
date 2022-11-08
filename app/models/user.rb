@@ -1,11 +1,11 @@
 class User
-    include ActiveModel::SecurePassword
-
     attr_accessor :username
 
-    has_secure_password
+    def username
+        @username ||= 'mitosinka'
+    end
 
-    def password_digest
-        @password_digest ||= BCrypt::Password.create('password')
+    def authenticate(password_hash)
+        password_hash == Digest::SHA1.hexdigest('milan')
     end
 end
