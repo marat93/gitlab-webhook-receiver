@@ -29,7 +29,7 @@ Content-Type: application/x-www-form-urlencoded
 ---
 username={{USERNAME}
 ```
-As a response you will get a token that you should use for all the future requests
+As a response you will get a [JWT-token](https://jwt.io/) that you should use for all the future requests
 ```json
 {
     "token": "eyJhbGciOiJIUzI1NiJ9.eyJlpcmVzXjoiMjAyMi0xM...",
