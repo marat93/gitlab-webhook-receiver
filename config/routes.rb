@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  post 'authentication/login'
-  get 'authentication/info'
+  scope :api do
+    scope :v1 do
+      post 'authentication/login'
+      get 'authentication/info'
 
-  resource :image, only: :show
+      resource :image, only: :show
+    end
+  end
 end
