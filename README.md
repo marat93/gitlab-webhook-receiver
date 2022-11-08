@@ -18,7 +18,7 @@ docker-compose up
 ```
 
 ## API Documentation
-To save your time you can utilize [this Postman collection](Test APP.postman_collection.json)
+To save your time you can utilize [this Postman collection](postman_collection.json)
 ### Sing in
 To sign in pass your password as a SHA1 hashed string in the authorization header. Due to the nature of this project credentials are hard coded. Use `mitosinka` as a username and `milan` as a password. Put `c5983e484db0b621516387b3e50af84020b214c0` to `Authorization` header.
 ```
