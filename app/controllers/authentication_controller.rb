@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AuthenticationController < ApplicationController
   before_action :authorize_request, except: :login
 
@@ -8,7 +10,7 @@ class AuthenticationController < ApplicationController
       time = Time.now + 1.hour.to_i
       token = JsonWebToken.encode(expires_at: time)
 
-      render json: { token: token, exp: time.strftime("%m-%d-%Y %H:%M") }, status: :ok
+      render json: { token: token, exp: time.strftime('%m-%d-%Y %H:%M') }, status: :ok
     else
       render json: { error: 'unauthorized' }, status: :unauthorized
     end
@@ -27,5 +29,4 @@ class AuthenticationController < ApplicationController
   def username_param
     params[:username]
   end
-
 end
