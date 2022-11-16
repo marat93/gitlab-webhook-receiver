@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
 
     if username_param == @user.username && @user.authenticate(password_param)
       time = Time.now + 1.hour.to_i
-      token = JsonWebToken.encode(expires_at: time)
+      token = JsonWebToken.encode({ expires_at: time }, time)
 
       render json: { token: token, exp: time.strftime('%m-%d-%Y %H:%M') }, status: :ok
     else
