@@ -3,7 +3,8 @@ class TriggersController < ApplicationController
     case params[:event_name]
     when "push"
       last_commit_id = params[:commits].last[:id]
-      branch_name = params[:ref].split('/').last
+      branch_name = params[:ref].match(/refs\/heads\/(.*)/)[1]
+
     when "merge_request"
       return
     else
