@@ -16,7 +16,7 @@ class TriggersController < ApplicationController
       "branch": branch_name,
       "author": {
         "name": params[:user_name],
-        "email": params[:user_email]
+        "email": "#{params[:user_username]}@qanat.kz"
       }
     }
 
